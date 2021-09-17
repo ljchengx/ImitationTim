@@ -1,0 +1,45 @@
+<?xml version="1.0"?>
+<Window size="725,548" caption="0,0,0,30">
+	<Font id="0" name="微软雅黑" size="14" />
+	<HorizontalLayout width="725" height="548" bkcolor="#FFFFFFFF">
+		<Control bkimage="images\new_bg_login.png" />
+		<VerticalLayout width="300">
+			<VerticalLayout height="25">
+				<HorizontalLayout bkcolor="#FFFFFFFF">
+					<Control />
+					<HorizontalLayout width="60" padding="0,0,10,0">
+						<Button tooltip="设置" bkimage="images\new_edit.png" textcolor="#FF000000" disabledtextcolor="#FFA7A6AA" />
+						<Button name="closebtn" tooltip="关闭" bkimage="images\new_close.png" textcolor="#FF000000" disabledtextcolor="#FFA7A6AA" />
+					</HorizontalLayout>
+				</HorizontalLayout>
+			</VerticalLayout>
+			<VerticalLayout height="200">
+				<Control height="60" bkcolor="#FFFFFFFF" />
+				<HorizontalLayout bkcolor="#FFFFFFFF">
+					<Option name="qq" width="68" height="68" padding="80,15,0,0" textcolor="#FF000000" disabledtextcolor="#FFA7A6AA" align="center" normalimage="images\qq_n.png" hotimage="images\qq_no.png" pushedimage="images\qq_no.png" selected="true" selectedimage="images\qq_no.png" />
+					<Option name="wx" width="68" height="68" padding="0,15,0,0" textcolor="#FF000000" disabledtextcolor="#FFA7A6AA" align="center" normalimage="images\wx_n.png" hotimage="images\wx_no.png" pushedimage="images\wx_no.png" selectedimage="images\wx_no.png" />
+				</HorizontalLayout>
+			</VerticalLayout>
+			<TabLayout name="tab_bar">
+				<VerticalLayout>
+					<HorizontalLayout height="45" bkcolor="#FFFFFFFF">
+						<Edit tipvalue="QQ号码/手机/邮箱" tipvaluecolor="#FF989898" name="edit_username" font="0" padding="35,0,0,0" bkcolor="#FFFFFFFF" bordercolor="0xFF0000FF" textpadding="4,3,4,3" textcolor="#FF000000" disabledtextcolor="#FFA7A6AA" font="0" bottombordersize="1" />
+						<Button width="45" bordersize="0,0,0,1" padding="0,0,10,0" bkimage="images\xl.png" bordercolor="#bac0c5" textcolor="#FF000000" disabledtextcolor="#FFA7A6AA" />
+					</HorizontalLayout>
+					<Control height="10" />
+					<HorizontalLayout height="45" bkcolor="#FFFFFFFF">
+						<Edit tipvalue="密码" password="true" tipvaluecolor="#FF989898" name="edit_password" font="0" padding="35,0,0,0" bkcolor="#FFFFFFFF" bordercolor="#FFFF00FF" textpadding="4,3,4,3" textcolor="#FF000000" disabledtextcolor="#FFA7A6AA" font="0" />
+						<Button name="btn_login" width="45" padding="0,0,10,0" bkimage="images\go.png" bordercolor="#FFBAC0C5" textcolor="#FF000000" disabledtextcolor="#FFA7A6AA" />
+					</HorizontalLayout>
+					<Option name="check_savepwd" text="记住密码" width="100" padding="35,0,0,0" textcolor="#00800000" disabledtextcolor="#FFA7A6AA" align="center" normalimage="file='images\check_un.png' dest='0,0,20,20' " selectedimage="file='images\check_sel.png' dest='0,0,20,20' " />
+				</VerticalLayout>
+				<VerticalLayout childalign="center" bkcolor="#FFFFFFFF">
+					<Control name="qrimg" width="150" height="140" bkimage="images\qr.png" />
+				</VerticalLayout>
+			</TabLayout>
+			<VerticalLayout bkcolor="#FFFFFFFF">
+				<HorizontalLayout height="100" />
+			</VerticalLayout>
+		</VerticalLayout>
+	</HorizontalLayout>
+</Window>

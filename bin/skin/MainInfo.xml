@@ -1,0 +1,17 @@
+<?xml version="1.0"?>
+<Window size="380,460" mininfo="380,460" caption="0,0,0,32">
+	<VerticalLayout bkcolor="0xFF00FFFF">
+		<HorizontalLayout height="100">
+			<VerticalLayout width="100" bkimage="images\info_avyor.png" />
+			<VerticalLayout bkcolor="0xFFFFFFFF">
+				<HorizontalLayout>
+					<Text name="name" width="240" text="123" pos="0,0,255,0" padding="0,15,0,0" />
+					<Button name="closebtn" height="24" pos="0,0,0,24" bkimage="images\close_w.png" />
+				</HorizontalLayout>
+				<Text name="dec" height="25" text="其他" pos="0,0,0,25" />
+				<Text name="sign" height="30" text="一天要做一件实事，一个月要做一件新事，一年要做一件大事，一辈子要做一件有意义的事。" pos="0,0,0,30" />
+			</VerticalLayout>
+		</HorizontalLayout>
+		<HorizontalLayout bkimage="images\info_other.png" />
+	</VerticalLayout>
+</Window>

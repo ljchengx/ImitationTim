@@ -1,0 +1,79 @@
+<?xml version="1.0"?>
+<Window size="880,600" sizebox="4,4,4,4">
+	<Default name="VScrollBar" value="button1normalimage=&quot;file='scroll.png' source='0,0,14,14'&quot; button1hotimage=&quot;file='scroll.png' source='0,0,16,16' mask='#FFFF00FF'&quot; button1pushedimage=&quot;file='scroll.png' source='0,16,16,32' mask='#FFFF00FF'&quot; button1disabledimage=&quot;file='scroll.png' source='0,0,16,16' mask='#FFFF00FF'&quot; button2normalimage=&quot;file='scroll.png' source='0,32,16,48' mask='#FFFF00FF'&quot; button2hotimage=&quot;file='scroll.png' source='0,32,16,48' mask='#FFFF00FF'&quot; button2pushedimage=&quot;file='scroll.png' source='0,48,16,64' mask='#FFFF00FF'&quot; button2disabledimage=&quot;file='scroll.png' source='0,32,16,48' mask='#FFFF00FF'&quot; thumbnormalimage=&quot;file='scroll.png' source='0,64,16,80' corner='2,2,2,2' mask='#FFFF00FF'&quot; thumbhotimage=&quot;file='scroll.png' source='0,64,16,80' corner='2,2,2,2' mask='#FFFF00FF'&quot; thumbpushedimage=&quot;ffile='scroll.png' source='0,64,16,80' corner='2,2,2,2' mask='#FFFF00FF'&quot; thumbdisabledimage=&quot;file='scroll.png' source='0,64,16,80' corner='2,2,2,2' mask='#FFFF00FF'&quot; railnormalimage=&quot;file='scroll.png' source='0,80,16,96' corner='2,2,2,2' mask='#FFFF00FF'&quot; railhotimage=&quot;file='scroll.png' source='0,80,16,96' corner='2,2,2,2' mask='#FFFF00FF'&quot; railpushedimage=&quot;file='scroll.png' source='0,96,16,112' corner='2,2,2,2' mask='#FFFF00FF'&quot; raildisabledimage=&quot;file='scroll.png' source='0,80,16,96' corner='2,2,2,2' mask='#FFFF00FF'&quot; bknormalimage=&quot;file='scroll.png' source='0,128,16,146' corner='2,2,2,2' mask='#FFFF00FF'&quot; bkhotimage=&quot;file='scroll.png' source='0,128,16,146' corner='2,2,2,2' mask='#FFFF00FF'&quot; bkpushedimage=&quot;file='scroll.png' source='0,128,16,146' corner='2,2,2,2' mask='#FFFF00FF'&quot; bkdisabledimage=&quot;file='scroll.png' source='0,128,16,146' corner='2,2,2,2' mask='#FFFF00FF'&quot; " />
+	<VerticalLayout width="880" height="600" pos="0,0,880,600" bkcolor="0xFF00FFFF">
+		<HorizontalLayout>
+			<VerticalLayout width="40">
+				<HorizontalLayout>
+					<VerticalLayout>
+						<HorizontalLayout height="90">
+							<VerticalLayout bordercolor="0xFFFFE9E9" rightbordersize="1">
+								<HorizontalLayout bordercolor="0xFFFFE9E9" rightbordersize="1" height="30" bkcolor="0xFFFFFFFF" />
+								<Button name="showbtn" width="40" height="40" pos="0,0,40,40" bordercolor="0xFFFFE9E9" rightbordersize="1" bkimage="images\avtor.png" />
+								<HorizontalLayout bordercolor="0xFFFFE9E9" rightbordersize="1" height="20" bkcolor="0xFFFFFFFF" />
+							</VerticalLayout>
+						</HorizontalLayout>
+						<HorizontalLayout>
+							<VerticalLayout>
+								<HorizontalLayout>
+									<VerticalLayout>
+										<HorizontalLayout bordercolor="0xFFFFE9E9" rightbordersize="1" bkimage="images\select1.png" />
+										<HorizontalLayout bordercolor="0xFFFFE9E9" rightbordersize="1" bkimage="images\select2.png" />
+										<HorizontalLayout bordercolor="0xFFFFE9E9" rightbordersize="1" bkimage="images\select3.png" />
+									</VerticalLayout>
+								</HorizontalLayout>
+								<HorizontalLayout bordercolor="0xFFFFE9E9" rightbordersize="1" bkcolor="0xFFFFFFFF" />
+							</VerticalLayout>
+						</HorizontalLayout>
+					</VerticalLayout>
+				</HorizontalLayout>
+				<HorizontalLayout>
+					<VerticalLayout>
+						<HorizontalLayout bordercolor="0xFFFFE9E9" rightbordersize="1" bkcolor="0xFFFFFFFF" />
+						<HorizontalLayout>
+							<VerticalLayout>
+								<HorizontalLayout bordercolor="0xFFFFE9E9" rightbordersize="1" bkcolor="0xFFFFFFFF" />
+								<HorizontalLayout bordercolor="0xFFFFE9E9" rightbordersize="1" bkimage="images\mf.png" />
+								<HorizontalLayout bordercolor="0xFFFFE9E9" rightbordersize="1" bkimage="images\gd.png" />
+							</VerticalLayout>
+						</HorizontalLayout>
+					</VerticalLayout>
+				</HorizontalLayout>
+			</VerticalLayout>
+			<VerticalLayout width="220" bkcolor="0xFFFFFFFF">
+				<HorizontalLayout height="100">
+					<VerticalLayout>
+						<HorizontalLayout height="20" />
+						<HorizontalLayout height="30">
+							<VerticalLayout>
+								<Edit bordercolor="0xFFFFE9E9" bordersize="1,1,1,1" width="157" height="30" pos="0,0,157,30" padding="20,0,0,0" />
+							</VerticalLayout>
+							<VerticalLayout width="40" bkimage="images\add.png" />
+						</HorizontalLayout>
+						<HorizontalLayout>
+							<Button height="29" bkimage="images\db.png" hotimage="images\dbh.png" padding="20,8,0,0" />
+						</HorizontalLayout>
+					</VerticalLayout>
+				</HorizontalLayout>
+				<HorizontalLayout>
+					<VerticalLayout>
+						<NewList padding="0,5,0,0" name="chatlist" itemshowhtml="true" vscrollbar="true" header="hidden" itemhotbkcolor="FFEBEBEC" itemselectedbkcolor="FFEBEBEC" />
+					</VerticalLayout>
+				</HorizontalLayout>
+			</VerticalLayout>
+			<VerticalLayout>
+				<HorizontalLayout height="28">
+					<VerticalLayout bkcolor="0xFFF5F6F7" />
+					<VerticalLayout width="100">
+						<HorizontalLayout>
+							<Button name="minbtn" tooltip="最小化" bkimage="images\min.png" />
+							<Button name="maxbtn" tooltip="最大化" bkimage="images\max.png" />
+							<Button name="closebtn" tooltip="关闭" bkimage="images\close.png" />
+						</HorizontalLayout>
+					</VerticalLayout>
+				</HorizontalLayout>
+				<HorizontalLayout bkimage="images\none_bg.png" />
+			</VerticalLayout>
+		</HorizontalLayout>
+	</VerticalLayout>
+</Window>
