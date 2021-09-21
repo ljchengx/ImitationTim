@@ -3,6 +3,8 @@
 #include "StdAfx.h"
 #include "MainHome.h"
 #include "UserInfoController.h"
+#include <mutex>
+#include "qrencode.h"
 
 #define WM_LOGINSUCCESS WM_USER + 55
 
@@ -47,6 +49,12 @@ private:
 
 	//获取微信登录二维码
 	void GetQrWx();
+
+	//通过二维码生成bitmap
+	void GetBitmap(FILE* pf, QRcode* code);
+
+	//通过bitmap生成png修改背景图片
+	void GetPngByBitmap();
 
 	//登录成功
 	LRESULT LoginSuccess(LPARAM parameter);

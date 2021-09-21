@@ -1,8 +1,7 @@
 #include "StdAfx.h"
 #include "Login.h"
 #include "HttpUtil.h"
-#include <mutex>
-#include "qrencode.h"
+
 
 const string INI_LOCAL_FILE = "./bin/imitationtim.ini";
 const string DB_LOCAL_FILE = "bin/tim.db";
@@ -54,18 +53,18 @@ LRESULT LoginForm::OnCreate(UINT uMsg, WPARAM wParam, LPARAM lParam, BOOL& bHand
 	}
 	m_PaintManager.SetResourcePath(strResourcePath.GetData());
 
-	//init
+	//初始化
 	m_PaintManager.Init(m_hWnd);
 
-	//xml
+	//读取xml文件
 	CControlUI* pRoot = builder.Create(GetSkinFile().GetData(), 0, NULL, &m_PaintManager);
-	ASSERT(pRoot && "Failed to parse XML");
+	ASSERT(pRoot && "读取xml文件失败");
 
 	m_PaintManager.AttachDialog(pRoot);
 
 	m_PaintManager.AddNotifier(this);
 
-	//init
+	//初始化
 	Init();
 
 	return 0;
@@ -99,36 +98,36 @@ LRESULT LoginForm::OnNcCalcSize(UINT uMsg, WPARAM wParam, LPARAM lParam, BOOL& b
 
 void LoginForm::Init()
 {
-	//btn login
+	//登录按钮
 	m_pLogin = static_cast<CButtonUI*>(m_PaintManager.FindControl(_T("btn_login")));
 
-	//username pwd
+	//获取用户名和密码控件
 	m_pUserName = static_cast<CEditUI*>(m_PaintManager.FindControl(_T("edit_username")));
 	m_pPassWord = static_cast<CEditUI*>(m_PaintManager.FindControl(_T("edit_password")));
 	m_pPassWord->SetPasswordChar('*');
 
-	//checkbox save pwd
+	//选择是否保存密码
 	m_pSavePwd = static_cast<CCheckBoxUI*>(m_PaintManager.FindControl(_T("check_savepwd")));
 
-	//select table
+	//table 切换
 	m_pTabLayout = static_cast<CTabLayoutUI*>(m_PaintManager.FindControl(_T("tab_bar")));
 
-	//option qq
+	//选择QQ登录
 	m_pOptionQQ = static_cast<COptionUI*>(m_PaintManager.FindControl(_T("qq")));
 
-	//option wx
+	//选择微信登录
 	m_pOptionWx = static_cast<COptionUI*>(m_PaintManager.FindControl(_T("wx")));
 
 	m_pQrImg = static_cast<CControlUI*>(m_PaintManager.FindControl(_T("qrimg")));
 
 	m_userController = new UserController();
 
-	//remember pwd 
+	//是否记住密码
 	int result = GetPrivateProfileInt("data", "IsSavePwd", 0, INI_LOCAL_FILE.c_str());
 
 	if (result == 1) {
 		UserInfo user;
-		//get db info
+		//从本地数据库获取用户信息
 		user = m_userController->getUserInfoFromFile(DB_LOCAL_FILE);
 		m_pUserName->SetText(user.getUserName().c_str());
 		m_pPassWord->SetText(user.getPwd().c_str());
@@ -140,7 +139,7 @@ void LoginForm::Init()
 
 
 
-//click events
+//点击事件
 void LoginForm::OnClick(TNotifyUI& msg)
 {
 	CDuiString pSenderName = msg.pSender->GetName();
@@ -174,7 +173,7 @@ void LoginForm::OnClick(TNotifyUI& msg)
 		struct Prama* prama = new Prama;
 		prama->hWnd = GetHWND();
 
-		//child thread operation
+		//子线程处理二维码
 		DWORD dwThreadID = 0;
 		HANDLE hThread = CreateThread(NULL, 0, &LoginForm::UserWxLogin, (LPVOID)prama, 0, &dwThreadID);
 
@@ -182,7 +181,7 @@ void LoginForm::OnClick(TNotifyUI& msg)
 
 }
 
-//login by btn
+//帐号密码登录处理
 void LoginForm::UserLogin()
 {
 
@@ -198,7 +197,7 @@ void LoginForm::UserLogin()
 
 	string url = HTTP_QQ_LOGIN + "?userName=" + (string)user_name + "&password=" + (string)pass_word;
 
-	//http post
+	//网络请求
 	string result = HttpUtil::Get().HttpPost(url.c_str());
 	if (result == "")
 	{
@@ -208,10 +207,10 @@ void LoginForm::UserLogin()
 
 	UserInfo userInfo;
 
-	//parseFromJson
+	//反序列化用户信息
 	userInfo = m_userController->parseFromJson(result);
 
-	//save info db 
+	//保存用户进本地数据库
 	if (m_pSavePwd->GetCheck())
 	{
 		m_userController->saveUserInfoToFile(userInfo, DB_LOCAL_FILE);
@@ -293,6 +292,17 @@ void LoginForm::GetQrWx()
 	QRcode* code = QRcode_encodeString(HTTP_WX_POST.c_str(), 0, QR_ECLEVEL_H, QR_MODE_8, 1);
 
 	FILE* pf = fopen("bin/qrcode.bmp", "wb");
+	
+	GetBitmap(pf, code);
+
+	QRcode_free(code);
+
+	GetPngByBitmap();
+
+}
+
+void LoginForm::GetBitmap(FILE* pf, QRcode* code)
+{
 	if (NULL == pf)
 	{
 		printf("file open fail.\n");
@@ -350,9 +360,10 @@ void LoginForm::GetQrWx()
 	fclose(pf);
 	delete[] pBMPData;
 	pBMPData = NULL;
+}
 
-	QRcode_free(code);
-
+void LoginForm::GetPngByBitmap()
+{
 	Gdiplus::Bitmap btm(L"bin/qrcode.bmp");
 
 	HBITMAP hBitmap = NULL;
@@ -368,7 +379,6 @@ void LoginForm::GetQrWx()
 		}
 
 	}
-
 }
 
 LRESULT LoginForm::HandleMessage(UINT uMsg, WPARAM wParam, LPARAM lParam)

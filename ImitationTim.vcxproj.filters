@@ -126,6 +126,12 @@
     <ClInclude Include="qrencode.h">
       <Filter>Include</Filter>
     </ClInclude>
+    <ClInclude Include="SqliteUtil.h">
+      <Filter>Utils</Filter>
+    </ClInclude>
+    <ClInclude Include="StringUtil.h">
+      <Filter>Utils</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="ImitationTim.cpp">
@@ -151,6 +157,12 @@
     </ClCompile>
     <ClCompile Include="UserInfo.cpp">
       <Filter>Model</Filter>
+    </ClCompile>
+    <ClCompile Include="SqliteUtil.cpp">
+      <Filter>Utils</Filter>
+    </ClCompile>
+    <ClCompile Include="StringUtil.cpp">
+      <Filter>Utils</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>

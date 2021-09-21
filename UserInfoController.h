@@ -2,7 +2,7 @@
 #include "StdAfx.h"
 #include <string>
 #include "UserInfo.h"
-#include "sqlite3.h" 
+#include "SqliteUtil.h"
 
 class UserController
 {

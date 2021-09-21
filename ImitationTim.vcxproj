@@ -175,7 +175,9 @@
     <ClInclude Include="rapidjson\uri.h" />
     <ClInclude Include="rapidjson\writer.h" />
     <ClInclude Include="sqlite3.h" />
+    <ClInclude Include="SqliteUtil.h" />
     <ClInclude Include="StdAfx.h" />
+    <ClInclude Include="StringUtil.h" />
     <ClInclude Include="UICListItem.h" />
     <ClInclude Include="UserInfo.h" />
     <ClInclude Include="UserInfoController.h" />
@@ -186,6 +188,8 @@
     <ClCompile Include="Login.cpp" />
     <ClCompile Include="MainHome.cpp" />
     <ClCompile Include="MainInfo.cpp" />
+    <ClCompile Include="SqliteUtil.cpp" />
+    <ClCompile Include="StringUtil.cpp" />
     <ClCompile Include="UICListItem.cpp" />
     <ClCompile Include="UserInfo.cpp" />
     <ClCompile Include="UserInfoController.cpp" />
